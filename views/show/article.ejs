@@ -1,0 +1,108 @@
+<article id="show_article">
+    <div class="wrapper">
+        <div class="pagination"> 
+            <ul>
+                <li>
+                    <a href="/">Accueil</a>
+                </li>
+                <li>
+                    <p><%= article.title %></p>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div>
+                <div class="infos_article">
+                    <h2 class="title_h1"><%= article.title %></h2>
+                    <figure>
+                        <img src="../upload/post/<%= article.picture %>" alt="photo illustrant <%= article.title %>">
+                    </figure>
+                    <p class="author_date">	<span><i class="fas fa-user-circle"></i> <%= article.user.pseudo %></span> | <span><%= article.reading %>min de lecture</span></p>
+                </div>
+                <hr style="opacity: 0.2;">
+                <div class="content_article">
+                    <%- article.sanitizedHtml %>
+                </div>
+                <div class="actionMenu">
+                    <p>Cette article vous à été utile ?</p>
+                    <ul>
+                        <li class="like_items">
+                            <form action="../article/<%= article.slug %>/toggleLikeArticle?_method=PUT" method="post">
+                                <button type="submit" class="button_like">
+                                    <span><i class="far fa-thumbs-up"></i></span>
+                                    <span><%= article.likers.length %></span>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div> 
+                <div class="commentaire">
+                    <div>
+                        <div class="form_comment">
+                            <form action="../<%= article.slug %>" method="post">
+                                <div class="form_group">
+                                    <label for="msg"></label>
+                                    <textarea name="msg" id="msg" rows="2" class="form_control" placeholder="Ajouter un commentaire..." required></textarea>
+                                </div>
+                                <div class="form_group">
+                                    <input type="submit" value="Envoyer" class="btn">
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="content_comment">
+                            <% if (article.comments.length == 0 ) { %>
+                                <p>Soyez le premier à commenter.</p>
+                            <% } else { %>
+                            <h3 class="title_h3">Reponses (<%= article.comments.length %>) </h3>
+                            <ul class="content_user_comment">
+                                <% article.comments.forEach(com => { %>
+                                    <li>
+                                        <div class="infos_content">
+                                            <div>
+                                                <h3 class="title_h3">by <%= com.user.pseudo %></h3>
+                                                <!-- <p style="font-size: 0.8rem; margin-bottom: 5px;"><%= com.updatedAt %></p> -->
+                                            </div>
+                                            <p><%= com.msg %></p>
+                                        </div>
+                                        <div class="user_icon">
+                                            <figure class="mon_avatar">
+                                                <img src="../images/avatar/<%= com.user.avatar %>" alt="Avatar de <%= com.user.pseudo %>">
+                                            </figure>
+                                        </div>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                            <% }; %>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="others_articles">
+                    <div>
+                        <h2 class="title_h2">À lire également</h2>
+                        <div class="derniers_articles">
+                            <% articles.forEach(article => { %>
+                                <article>
+                                    <div class="block_article__">
+                                        <h3 class="title_h3">
+                                            <a href="../article/<%=article.slug%>"><%= article.title %></a>
+                                        </h3>
+                                        <P class="author_date">	<span><i class="fas fa-user-circle"></i> <%= article.user.pseudo %></span></P>
+                                    </div>
+                                    <div class="block_article__">
+                                        <figure>
+                                            <img src="../upload/post/<%= article.picture %>" alt="photo illustrant <%= article.title %>">
+                                        </figure>
+                                    </div>
+                                </article>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

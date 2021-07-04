@@ -1,0 +1,53 @@
+{
+  "name": "erdcinfowww",
+  "version": "1.0.0",
+  "description": "entreprendre en rdc",
+  "main": "app.js",
+  "scripts": {
+    "start": "set NODE_ENV=production&&node app.js",
+    "dev": "set NODE_ENV=development&&nodemon app.js"
+  },
+  "keywords": [
+    "entreprendre",
+    "RDC",
+    "entreprenariat",
+    "information",
+    "entreprise",
+    "création",
+    "créative",
+    "innovant",
+    "afrique",
+    "opportunités",
+    "développement",
+    "croissance",
+    "reussite"
+  ],
+  "author": "uhuru",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dompurify": "^2.2.7",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "http-errors": "^1.8.0",
+    "jsdom": "^16.4.0",
+    "marked": "^2.1.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.3",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "^2.5.0",
+    "slugify": "^1.4.5"
+  },
+  "devDependencies": {
+    "helmet": "^4.1.0",
+    "nodemon": "^2.0.4",
+    "morgan": "^1.10.0"
+  }
+}

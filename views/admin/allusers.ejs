@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card_header" style="margin-bottom: 25px;">
+        <h2 class="title_h2"> Tous les utilisateurs</h2>
+    </div>
+
+    <div class="card_body">
+        <div class="table_responsive">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <th>Pseudo</th>
+                        <th>E-mail</th>
+                        <th>Role</th>
+                        <th>article(s)</th>
+                        <th>Date de création</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td>
+                                <%= user.pseudo %>
+                            </td>
+                            <td>
+                                <%= user.email %>
+                            </td>
+                            <td>
+                                <%= user.role %>
+                            </td>
+                            <td>
+                                <%= user.articles.length %>
+                            </td>
+                            <td> 
+                                <%= user.createdAt %>
+                            </td>
+                            <td>
+                                <form action="../admin/user/<%= user.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" title="Supprimer l'utilisateur" class="btn_delete"><span><i class="fas fa-times-circle"></i></span></button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

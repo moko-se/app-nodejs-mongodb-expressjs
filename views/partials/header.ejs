@@ -1,0 +1,89 @@
+<!-- HEADER -->
+<div class="wrapper">
+    <!-- logo du site erdcinfo -->
+    <h1>
+        <figure>
+            <a href="/">
+                <img src="../../images/logo_erdcinfo_text_black.png" alt="logo du site erdcinfo">
+            </a>
+        </figure>
+    </h1>
+    <!-- Button toggle -->
+    <button class="button-toggle" type="button">
+        <span><i class="fas fa-bars
+            "></i></span>
+    </button>
+    <div class="navbartoggle">
+        <div>
+            <div>
+                <button class="button-toggle-hide" type="button">
+                    <span><i class="fas fa-times
+                        "></i></span>
+                </button>
+            </div>
+            <% if (user) { %>
+                <div>
+                    <figure class="mon_avatar">
+                        <img src="../../images/avatar/<%= user.avatar %>" alt="Avatar de <%= user.pseudo %>">
+                    </figure>
+                </div>
+            <% } %>
+        </div>
+        <ul>
+            <li>
+                <a href="#article_a_la_une" title="Accueil" class="navbar_link items_li">Accueil</a>
+            </li>
+            <li>
+                <a href="#stories" title="Stories" class="navbar_link items_li">Stories</a>
+            </li>
+            <li>
+                <a href="#apropos" title="À propos" class="navbar_link items_li">À propos</a>
+            </li>
+            <% if (!user) { %>
+            <li>
+                    <a href="../users/signin" title="Page de connexion" class="btn btn-connexion">Se connecter <i class="fas fa-angle-right"></i> </a>
+            </li>
+            <% } else { %>
+                <% if (user.role == 'admin') { %>
+                    <li>
+                        <a href="/admin/dashboard">Tableau de bord</a>
+                    </li>
+                <% } %>
+                <li>
+                    <a href="/users/logout">Déconnexion</a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+
+    <!-- Menu du site -->
+    <nav>
+        <a href="#article_a_la_une" title="Accueil" class="navbar_link active_link">Accueil</a>
+        <a href="#stories" title="Stories" class="navbar_link">Stories</a>
+        <a href="#apropos" title="À propos" class="navbar_link">À propos</a>
+        <!-- connexion button -->
+        <% if (!user) { %>
+            <a href="../users/signin" title="Page de connexion" class="btn btn-connexion">Se connecter <i class="fas fa-angle-right"></i> </a>
+        <% } else { %>
+            <a href="#" id="btn_mon_espace" title="Mon espace">
+                <figure class="mon_avatar">
+                    <img src="../../images/avatar/<%= user.avatar %>" alt="Avatar de <%= user.pseudo %>">
+                </figure>
+            </a>
+            <div id="menu_mon_espace">
+                <ul>
+                    <% if (user.role == 'admin') { %>
+                    <li>
+                        <span><i class="fas fa-tachometer-alt"></i></span>
+                        <a href="/admin/dashboard">Tableau de bord</a>
+                    </li>
+                    <% } %>
+                    <li>
+                        <span><i class="fas fa-sign-out-alt"></i></span>
+                        <a href="/users/logout">Déconnexion</a>
+                    </li>
+                </ul>
+            </div>
+        <% } %>
+    </nav>
+</div>

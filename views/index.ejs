@@ -1,0 +1,97 @@
+<section id="article_a_la_une" class="section_content s1">
+	<div class="wrapper">
+		<% if (articles.length == 0) { %>
+			<p style= "display: flex; justify-content: center; align-items: center; text-align: center; height: 350px;">Aucun article disponible</p>
+		<% } else { %>
+			<div class="block_column">
+				<div class="block_featured_article">
+					<% article_featured.forEach(article => { %>
+						<article class="featured_article">
+							<h3 class="title_h2">
+								<a href="/article/<%= article.slug %>"><%= article.title %></a>
+							</h3>
+							<p class="author_date">	<span><i class="fas fa-user-circle"></i> <%= article.user.pseudo %></span> | <span><%= article.reading %> minute</span></p>
+							<figure>
+								<img src="../upload/post/<%= article.picture %>" alt="Image illustrant <%= article.title %>">
+							</figure>
+						</article>
+					<% }); %>
+				</div>
+				<div class="block_featured_article">
+					<div class="block_recents_articles">
+						<h2 class="title_h2">Derniers articles</h2>
+						<div class="block_articles">
+							<% articles.forEach(article => { %>
+								<article>
+									<div class="block_article__">
+										<h3 class="title_h3">
+											<a href="/article/<%= article.slug %>"><%= article.title %></a>
+										</h3>
+										<P class="author_date">	<span><i class="fas fa-user-circle"></i> <%= article.user.pseudo %></span></P>
+									</div>
+									<div class="block_article__">
+										<figure>
+											<img src="../upload/post/<%= article.picture %>" alt="Image illustrant <%= article.title %>">
+										</figure>
+									</div>
+								</article>
+							<% }); %>
+						</div>
+						<p>
+							<a href="/allarticles" class="btn"> Voir plus d'articles </a>
+						</p>
+					</div>
+				</div>
+			</div>
+		<% }; %>
+		<div class="hrp"><div class="progress_bar"></div></div>
+	</div>
+</section>
+
+<article id="stories" class="section_content s2">
+	<div class="wrapper">
+		<ul>
+			<li>
+				<h2 class="title_h2">Des histoires inspirantes,
+				Des entrepreneurs prodigieux</h2>
+				<p class="text">La rubrique story aura pour objectif de raconter l’histoire des entrepreneurs et entreprises qui réussissent en République Démocratique du Congo</p>
+				<p class="btn" style="opacity: 0.3;">
+					<a href="./" type="button">Bientôt disponible</a>
+				</p>
+			</li>
+			<li>
+				<figure>
+					<img src="images/femme_happy_to_stories.png" alt="Image d'une femme souriante">
+				</figure>
+			</li>
+		</ul>
+		<!--  -->
+	</div>
+</article>
+
+<article id="apropos" class="section_content s3">
+	<div>
+		<div class="imgBox">
+			<figure>
+				<img src="../images/entrepreneur.png" alt="image d'un entrepreneur">
+			</figure>
+			<div class="contentApropos">
+				<h2 class="title_h2">À propos de Erdcinfo</h2>
+				<p>Erdcinfo est une plateforme en ligne qui parle de l'entrepreneuriat, de l'investissements et du business en République démocratique du Congo.</p>
+			</div>
+		</div>
+		<div class="boxApropos">
+			<ul>
+				<li>
+					<h3 class="title_h3">Vision</h3>
+					<p>Notre vision est de vous fournir des informations de qualités sur l'entrepreneuriat, l'investissement et le business en République Démocratique du Congo</p>
+				</li>
+				<li>
+					<h3 class="title_h3">Mission</h3>
+					<p>Notre mission est de récolté les informations authentiques, les analysés et les produire dans un meilleur format.</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</article>
+

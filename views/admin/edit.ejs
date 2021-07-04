@@ -1,0 +1,6 @@
+<article id="form_article">
+    <h2 class="title_h3">Modifier l'article <%= article.title %></h2>
+    <form action="/admin/edit/<%= article.id %>?_method=PUT" enctype="multipart/form-data" method="post">
+        <%- include('../partials/form') -%>
+    </form>
+</article>   

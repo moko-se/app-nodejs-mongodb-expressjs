@@ -1,0 +1,110 @@
+<div class="cards">
+    <div class="card_single">
+        <div>
+            <h2 class="title_h2"><%= allusers %></h2>
+            <span>Utilisateurs</span>
+        </div>
+        <div>
+            <span><i class="fas fa-users"></i></span>
+        </div>
+    </div>
+
+    <div class="card_single">
+        <div>
+            <h2 class="title_h2"><%= allarticles %></h2>
+            <span>Articles</span>
+        </div>
+        <div>
+            <span><i class="fas fa-clipboard"></i></span>
+        </div>
+    </div>
+
+    <div class="card_single">
+        <div>
+            
+            
+            <h2 class="title_h2">
+                X
+            </h2>
+            <span>Like</span>
+        </div>
+        <div>
+            <span><i class="far fa-fa-thumbs-up"></i></span>
+        </div>
+    </div>
+</div>
+
+<div class="recents_flex">
+    <div class="articles">
+
+        <div class="card">
+            <div class="card_header">
+                <h2 class="title_h3"> Recents Articles</h2>
+
+                <button>Tous <span><i class="fas fa-angle-right"></i></span></button>
+            </div>
+
+            <div class="card_body">
+                <div class="table_responsive">
+                    <table width="100%">
+                        <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Date</th>
+                                <th>Comment(s)</th>
+                                <th>Likes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% articles.forEach(article => { %>
+                                <tr class="tradmin">
+                                    <td><%= article.title %></td>
+                                    <td><%= article.createdAt %></td>
+                                    <td>
+                                        <%= article.comments.length %>
+                                    </td>
+                                    <td>
+                                        <span class="likeadmin"><i class="far fa-fa-thumbs-up"></i></span>
+                                        <%= article.likers.length%>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="users">
+        <div class="card">
+            <div class="card_header">
+                <h2 class="title_h3"></h2>
+
+                <button>Tous <span><i class="fas fa-angle-right"></i></span></button>
+            </div>
+        
+            <div class="card_body">
+                <% users.forEach(user => { %>
+                    <div class="user">
+                        <div class="info">
+                            <figure class="mon_avatar">
+                                <img src="../images/avatar/<%= user.avatar %>" alt="Avatar de <%= user.pseudo %>">
+                            </figure>
+                            <div>
+                                <h3><%= user.pseudo %></h3>
+                                <small><%= user.role %></small>
+                            </div>
+                        </div>
+                        <div class="contact">
+                            <span><i class="far fa-user-circle"></i></span>
+                            <a href="mailto:<%=user.email%>">
+                                <span><i class="fas fa-at"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</div>

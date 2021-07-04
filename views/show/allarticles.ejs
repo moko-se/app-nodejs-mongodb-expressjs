@@ -1,0 +1,40 @@
+<article id="show_article_all_articles">
+    <div class="wrapper">
+        <div class="pagination"> 
+            <ul>
+                <li>
+                    <a href="/">Accueil</a>
+                </li>
+                <li>
+                    <p>Articles</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="allarticles">
+            <h2 class="title_h2">Tous nos articles</h2>
+            <hr style="opacity: 0.1; margin-bottom: 25px;">
+
+            <div class="box_card">
+                <% articles.forEach(article => { %>
+                    <article class="article-card">
+                        <div class="body_card">
+                            <h3 class="title_h3">
+                                <a href="../article/<%= article.slug %>"><%= article.title %></a>
+                            </h3>
+                        </div>
+                        <div class="footer_card">
+                            <p><%= article.updatedAt %></p>
+                        </div>
+                        <div class="header_card">
+                            <figure>
+                                <img src="../../upload/post/<%= article.picture %>" alt="">
+                            </figure>
+                        </div>
+
+                    </article>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,56 @@
+<section id="sectionLogin">
+
+    <article id="imgIllustration">
+        <figure>
+            <img src="../../images/advertising-concept.jpg" alt="illustration connexion page">
+        </figure>
+    </article>
+    <article id="block_form_account">
+        <div class="wrapper">
+            <div class="pagination"> 
+                <ul>
+                    <li>
+                        <a href="/">Accueil</a>
+                    </li>
+                    <li>
+                        <p>Création d'un compte erdcinfo</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="messages">
+                <%- include('../partials/messages') -%>
+            </div>
+            <div class="block_form_login">
+    
+                <h2 class="title_h2"> <span><i class="fas fa-user-plus"></i></span> S'inscrire</h2>
+                <form action="../users/signup" method="post">
+                    <div class="form_group">
+                        <label for="pseudo">Pseudo</label>
+                        <input type="text" id="pseudo" name="pseudo" class="form_control">
+                    </div>
+                    <div class="form_group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" class="form_control">
+                    </div>
+                
+                    <div class="form_group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" class="form_control">
+                    </div>
+                    <div class="form_group">
+                        <label for="password2">Confirmer le mot de passe</label>
+                        <input type="password" id="password2" name="password2" class="form_control">
+                    </div>
+                
+                    <div class="form_group">
+                        <input type="submit" value="S'inscrire" class="btn">
+                    </div>
+                </form>
+                
+                <p class="create_acccount">
+                    Vous avez dèja un compte? <a href="../users/signin">Se connecter</a>
+                </p>
+            </div>
+        </div>
+    </article>
+</section>
